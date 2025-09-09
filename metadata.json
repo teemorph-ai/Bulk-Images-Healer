@@ -1,0 +1,5 @@
+{
+  "name": "Bulk Image Healer",
+  "description": "An AI-powered tool to remove small objects from the corners of multiple images at once, using a spot healing effect to maintain original quality.",
+  "requestFramePermissions": []
+}
