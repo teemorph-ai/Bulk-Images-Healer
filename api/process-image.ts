@@ -1,4 +1,4 @@
-import { GoogleGenAI, Modality } from "https://aistudiocdn.com/@google/genai@^1.17.0";
+import { GoogleGenAI, Modality } from "@google/genai";
 
 // Types are redefined here to keep the serverless function self-contained.
 enum Corner {
@@ -49,7 +49,7 @@ export default async function handler(req: Request) {
 
     const apiKey = process.env.API_KEY;
     if (!apiKey) {
-        throw new Error("API_KEY environment variable is not set on the server.");
+        throw new Error("API_KEY environment variable is not set on the server. Please check your Vercel deployment settings.");
     }
     const ai = new GoogleGenAI({ apiKey });
 
@@ -86,7 +86,7 @@ export default async function handler(req: Request) {
       }
     }
 
-    throw new Error("No image was returned from the API. The content may have been blocked.");
+    throw new Error("No image was returned from the API. The content may have been blocked due to safety settings.");
 
   } catch (error) {
     console.error("Error in process-image API:", error);
